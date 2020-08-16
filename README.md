@@ -55,7 +55,7 @@ person : Decoder Person
 person =
     Field.require "name" Decode.string <| \name ->
     Field.require "id" Decode.int <| \id ->
-    Field.attempt "weight" Decode.int <| \maybeWeight ->
+    Field.optional "weight" Decode.int <| \maybeWeight ->
     Field.attempt "likes" Decode.int <| \maybeLikes ->
 
     Decode.succeed
